@@ -38,7 +38,8 @@ public class UserController {
 	@Autowired
 	private Jwt jwt;
 	private static Logger log = LoggerFactory.getLogger(UserController.class);
-
+	
+//Link :http://localhost:8080/assignment/user/login
 	@PostMapping("/login")
 	public Map<String, Object> login(@Valid @RequestBody Login login) {
 		log.info("Start Method :login");
@@ -89,6 +90,7 @@ public class UserController {
 		}
 
 	}
+	//Link :http://localhost:8080/assignment/user/addNewDoctor
 
 	@PostMapping("/addNewDoctor")
 	Map<String, Object> addNewDoctor(@Valid @RequestBody Doctor newDoctor) {
@@ -110,6 +112,7 @@ public class UserController {
 		return result;
 	}
 
+	//Link :http://localhost:8080/assignment/user/addNewPatient
 	@PostMapping("/addNewPatient")
 	Map<String, Object> addNewPatient(@Valid @RequestBody Patient newPatient) {
 		log.info("Start Method :addNewPatient");

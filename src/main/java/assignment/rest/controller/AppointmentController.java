@@ -51,7 +51,10 @@ public class AppointmentController {
 	private PatientRepo patientRepo;
 
 	private static Logger log = LoggerFactory.getLogger(AppointmentController.class);
-
+	/**
+	 * NOTE :should be add a Token in header,accordingly you can take one token from login API , Token validation 2 hour
+	 */
+//Link :http://localhost:8080/assignment/appointment/doctorAvailableList
 	@PostMapping("/doctorAvailableList")
 	public Map<String, Object> doctorFindAll(@Valid @RequestBody DoctorAvailableReq availableReq) {
 		log.info("Start Method :doctorFindAll");
@@ -78,6 +81,7 @@ public class AppointmentController {
 		log.info("End Method :doctorFindAll");
 		return result;
 	}
+	//Link :http://localhost:8080/assignment/appointment/cancelAppointment
 
 	@DeleteMapping("/cancelAppointment")
 	public Map<String, Object> cancelAppointment(@Valid @RequestBody CancelAppointmentReq cancleeReq) {
@@ -97,6 +101,7 @@ public class AppointmentController {
 
 		return result;
 	}
+	//Link :http://localhost:8080/assignment/appointment/availableDoctor
 
 	@PostMapping("/availableDoctor")
 	public Map<String, Object> availableDoctor(@Valid @RequestBody AllDoctorReq allDoctor) {
@@ -136,6 +141,7 @@ public class AppointmentController {
 
 		return result;
 	}
+	//Link :http://localhost:8080/assignment/appointment/availableDoctor
 
 	@PostMapping("/scheduleAppointment")
 	public Map<String, Object> scheduleAppointment(@Valid @RequestBody ScheduleAppointmentReq newApp) {
