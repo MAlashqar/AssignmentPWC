@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import assignment.rest.securite.ServiceInterceptor;
+import assignment.rest.security.ServiceInterceptor;
 @Component
 public class ServiceInterceptorAppConfig implements WebMvcConfigurer{
 	 @Autowired

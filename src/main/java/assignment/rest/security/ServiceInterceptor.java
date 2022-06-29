@@ -1,4 +1,4 @@
-package assignment.rest.securite;
+package assignment.rest.security;
 
 import java.io.Writer;
 import java.util.Arrays;
@@ -24,19 +24,20 @@ public class ServiceInterceptor implements HandlerInterceptor {
 	private static Logger log = LoggerFactory.getLogger(ServiceInterceptor.class);
 	@Autowired
 	Jwt jwt;
-@Autowired
-ObjectMapper objectMapper;
+	@Autowired
+	ObjectMapper objectMapper;
+
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 
 		log.info("[preHandle] " + "[ Req Method :" + request.getMethod() + "]" + "[Req URL :" + request.getRequestURI()
 				+ "]" + "[Req Param :" + getParameters(request) + "]");
-		String apiName = request.getRequestURI().split("/")[request.getRequestURI().split("/").length-1 ];
+		String apiName = request.getRequestURI().split("/")[request.getRequestURI().split("/").length - 1];
 		List<String> apiSkip = Arrays.asList("addNewPatient", "addNewDoctor", "login");
 		if (!apiSkip.contains(apiName)) {
 			String token = request.getHeader("token");
-			
+
 			if (token == null || token.isEmpty()) {
 				Map<String, String> result = new HashMap<String, String>();
 				result.put("errorCode", "400");
@@ -60,8 +61,8 @@ ObjectMapper objectMapper;
 				response.setCharacterEncoding("UTF-8");
 				response.setContentType("application/json");
 				try (final Writer writer = response.getWriter()) {
-				//	writer.write(result.toString());
-				writer.write(objectMapper.writeValueAsString(result));
+					// writer.write(result.toString());
+					writer.write(objectMapper.writeValueAsString(result));
 				}
 			}
 		}

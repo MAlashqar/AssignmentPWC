@@ -25,7 +25,7 @@ import assignment.rest.entity.Doctor;
 import assignment.rest.entity.Patient;
 import assignment.rest.repo.DoctorRepo;
 import assignment.rest.repo.PatientRepo;
-import assignment.rest.securite.Jwt;
+import assignment.rest.security.Jwt;
 
 @RestController
 @RequestMapping("/user")

@@ -1,4 +1,4 @@
-package assignment.rest.securite;
+package assignment.rest.security;
 
 import java.time.Duration;
 
